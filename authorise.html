@@ -62,10 +62,20 @@
         .auth-button:hover {
             background-color: #32CD32; /* Darker shade of lime on hover */
         }
+
+        .color-change {
+            color: green; /* Set initial color */
+        }
+
+        .color-change span {
+            color: red; /* Set different color */
+        }
     </style>
 </head>
 <body>
     <h1 class="title">Hydra Authorisation System</h1>
+    <h1>MAKE SURE THE HYDRA BOT IS ONLINE!</h1>
+    <br>
     <input type="text" id="username" class="styled-input" placeholder="Enter Your Discord Username">
     <br>
     <input type="number" id="userid" class="styled-input" placeholder="Enter Your Discord UserID">
@@ -73,6 +83,10 @@
     <input type="text" id="hydrakey" class="styled-input" placeholder="Enter Your Hydra Tool License Key">
     <br>
     <button class="auth-button" onclick="authorize()">AUTH</button>
+    <br>
+    <h1>
+        Status :  <span class="color-change">WORKING</span>
+    </h1>
 
     <script>
         function authorize() {
