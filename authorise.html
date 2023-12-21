@@ -20,6 +20,17 @@
             font-family: 'Courier New', Courier, monospace;
         }
 
+        .box {
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #000000;
+            text-align: center;
+        }
+
         .title {
             margin-bottom: 20px; /* Add some space below the title */
         }
@@ -34,7 +45,20 @@
             color: white; /* Text color */
             font-size: 16px;
             outline: none; /* Remove default focus outline */
-        }
+        border: 2px solid #7CFC00;
+        padding: 14px 10px;
+        width: 200px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: all 0.25s ease-in-out; /* Adding transition for smooth animation */
+    }
+
+    /* Expanding input fields on focus */
+    .styled-input:focus {
+      width: 250px;
+      border-color: #008000;
+    }
 
         /* Style placeholder text */
         .styled-input::placeholder {
@@ -43,7 +67,7 @@
 
         /* Style on focus */
         .styled-input:focus {
-            border-color: #555; /* Border color on focus */
+            border-color: #22ff00; /* Border color on focus */
         }
 
         /* Style for the button */
@@ -73,20 +97,21 @@
     </style>
 </head>
 <body>
-    <h1 class="title">Hydra Authorisation System</h1>
-    <h1>MAKE SURE THE HYDRA BOT IS ONLINE!</h1>
-    <br>
-    <input type="text" id="username" class="styled-input" placeholder="Enter Your Discord Username">
-    <br>
-    <input type="number" id="userid" class="styled-input" placeholder="Enter Your Discord UserID">
-    <br>
-    <input type="text" id="hydrakey" class="styled-input" placeholder="Enter Your Hydra Tool License Key">
-    <br>
-    <button class="auth-button" onclick="authorize()">AUTH</button>
+        <h1 class="title">Hydra Authorisation System</h1>
+        <h1>MAKE SURE THE HYDRA BOT IS ONLINE!</h1>
+        <br>
+        <input type="text" id="username" class="styled-input" placeholder="Enter Your Discord Username">
+        <br>
+        <input type="number" id="userid" class="styled-input" placeholder="Enter Your Discord UserID">
+        <br>
+        <input type="text" id="hydrakey" class="styled-input" placeholder="Enter Your Hydra Tool License Key">
+        <br>
+        <button class="auth-button" onclick="authorize()">AUTH</button>
     <br>
     <h1>
         Status :  <span class="color-change">WORKING</span>
     </h1>
+    <img src="https://api.hydratool.site/promo.gif" width="500">
 
     <script>
         function authorize() {
